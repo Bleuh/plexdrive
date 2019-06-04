@@ -17,12 +17,12 @@ import (
 
 	"runtime"
 
+	"github.com/bleuh/plexdrive/chunk"
+	"github.com/bleuh/plexdrive/config"
+	"github.com/bleuh/plexdrive/drive"
+	"github.com/bleuh/plexdrive/mount"
 	"github.com/claudetech/loggo"
 	. "github.com/claudetech/loggo/default"
-	"github.com/dweidenfeld/plexdrive/chunk"
-	"github.com/dweidenfeld/plexdrive/config"
-	"github.com/dweidenfeld/plexdrive/drive"
-	"github.com/dweidenfeld/plexdrive/mount"
 	flag "github.com/ogier/pflag"
 	"golang.org/x/sys/unix"
 )
@@ -32,15 +32,15 @@ func main() {
 	usr, err := user.Current()
 	home := ""
 	if err != nil {
-	    // Fall back to reading $HOME - work around user.Current() not
-	    // working for cross compiled binaries on OSX or freebsd.
-	    // https://github.com/golang/go/issues/6376
-	    home = os.Getenv("HOME")
-	    if home == "" {
-	    	panic(fmt.Sprintf("Could not read users homedir and HOME is not set: %v\n", err))
-	    }
+		// Fall back to reading $HOME - work around user.Current() not
+		// working for cross compiled binaries on OSX or freebsd.
+		// https://github.com/golang/go/issues/6376
+		home = os.Getenv("HOME")
+		if home == "" {
+			panic(fmt.Sprintf("Could not read users homedir and HOME is not set: %v\n", err))
+		}
 	} else {
-	    home = usr.HomeDir
+		home = usr.HomeDir
 	}
 
 	// parse the command line arguments

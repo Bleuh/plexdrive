@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/bleuh/plexdrive/config"
 	. "github.com/claudetech/loggo/default"
-	"github.com/dweidenfeld/plexdrive/config"
 	"golang.org/x/oauth2"
 	gdrive "google.golang.org/api/drive/v3"
 	"google.golang.org/api/googleapi"

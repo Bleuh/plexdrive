@@ -9,13 +9,13 @@ resources:
 - name: plexdrive-develop
   type: git
   source:
-    uri: https://github.com/dweidenfeld/plexdrive
+    uri: https://github.com/bleuh/plexdrive
     branch: develop
 
 - name: plexdrive-master
   type: git
   source:
-    uri: https://github.com/dweidenfeld/plexdrive
+    uri: https://github.com/bleuh/plexdrive
     branch: master
 
 - name: github-nightly-release
